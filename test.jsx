@@ -1,5 +1,4 @@
-import React from 'react';
-
-const InsecureDataComponent = ({ user }) => {
-  return <div>{user.name} - {user.email}</div>;
-};
+// Dangerous: Directly injecting user input into the DOM without sanitization
+function UserProfile({ userInput }) {
+  return <div dangerouslySetInnerHTML={{ __html: userInput }} />;
+}
