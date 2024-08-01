@@ -1,22 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const UnsafeForm = () => {
-  const [inputValue, setInputValue] = useState('');
+const SensitiveComponent = () => {
+  const apiKey = '1234567890abcdef';
 
-  const handleSubmit = async () => {
-    await fetch('/api/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ data: inputValue }),
-    });
-  };
-
-  return (
-    <input
-      type="text"
-      value={inputValue}
-      onChange={(e) => setInputValue(e.target.value)}
-    />
-    <button onClick={handleSubmit}>Submit</button>
-  );
+  return <div>API Key: {apiKey}</div>;
 };
